@@ -1,14 +1,21 @@
 package decisionTrees;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import dataRecording.DataSaverLoader;
 import dataRecording.DataTuple;
 
 
 public class DataSet {
 
-	//gestion de tuplas
-	//devuelve los atributos
+	
 	// array con los datos leidos de trainingData
-	DataTuple[] dataTuples;
+	public ArrayList<DataTuple> dataTuples;
+	//UNa vez discretizados se categorizan los valores en un hashmap 
+	//String --> isPinkyEdible (tipo de parametro)
+	//String2 --> true or false (tipo de valor)  
+	//Integer --> numero de veces que ocurre ese valor
+	private HashMap<String, HashMap<String, Integer>> dataSetClasificado;
 	
 	public DataSet()
 	{
@@ -22,7 +29,7 @@ public class DataSet {
 	
 	
 	// near < 15
-	public int getCounterGhostNear(){
+	/*public int getCounterGhostNear(){
 		int i = 0;
 		int total = 0;
 		for(i = 0; i < dataTuples.length; i++){
@@ -31,9 +38,9 @@ public class DataSet {
 			}
 		return total;
 			
-		}
+		}*/
 	} 
 	
-}
+
 
 

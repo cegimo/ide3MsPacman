@@ -254,6 +254,7 @@ public class DataTuple {
 		double aux = this.normalizeCurrentLevelTime(time);
 		return DiscreteTag.DiscretizeDouble(aux);
 	}
+	
 
 	/**
 	 * 
@@ -270,6 +271,41 @@ public class DataTuple {
 	public DiscreteTag discretizeCurrentScore(int score) {
 		double aux = this.normalizeCurrentScore(score);
 		return DiscreteTag.DiscretizeDouble(aux);
+	}
+	
+	//Par discretizar los datos de las tuplas
+	public  String discretizar(String nombreAtributo){
+		switch (nombreAtributo) {
+		case "numOfPillsLeft":
+			return discretizeNumberOfPills(this.discretizeNumberOfPills(numOfPillsLeft)).toString();
+			
+		case "isBlinkyEdible":
+			return discretizeBoolean(boolean value);// hay que hacerla 
+
+			
+		//Faltan los demás tipos
+		default:
+			return "None";
+		}
+		
+
+		//Para discretizar booleanos
+		public String discretizeBoolean(boolean value){
+			if(value)
+				return "true";
+			else
+				return "false";
+		}
+		
+		//Falta funcion de getHash 
+		
+		public HashMap<String, String> getHash(){
+			if
+			
+			
+		}
+		
+		
 	}
 
 }
