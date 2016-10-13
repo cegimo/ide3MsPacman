@@ -25,6 +25,7 @@ import pacman.controllers.examples.RandomPacMan;
 import pacman.controllers.examples.StarterGhosts;
 import pacman.controllers.examples.StarterPacMan;
 import pacman.entries.pacman.MyPacMan;
+import pacman.entries.pacman.MyPacmanTest;
 import pacman.game.Game;
 import pacman.game.GameView;
 
@@ -93,7 +94,7 @@ public class Executor
 		//exec.runGameTimed(new DataCollectorController(new StarterPacMan()),new StarterGhosts(),visual);
 		
 		//Ejecuta nuestro propio controlador
-		exec.runGameTimed(new DataCollectorController(new MyPacMan()),new StarterGhosts(),visual);
+		exec.runGameTimed(new DataCollectorController(new MyPacmanTest()),new StarterGhosts(),visual);
 		
 	}
 	

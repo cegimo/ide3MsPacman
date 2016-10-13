@@ -1,5 +1,8 @@
 package pacman.entries.pacman;
 
+import decisionTrees.*;
+import dataRecording.DataTuple;
+
 import java.util.ArrayList;
 
 import decisionTrees.Nodo;
@@ -52,8 +55,10 @@ public class MyPacmanTest extends Controller<MOVE>
 	{			
 		int current=game.getPacmanCurrentNodeIndex();
 		
-		
-		
+		System.out.println("hola");
+		DataSet arrayDeDatos = new DataSet();
+		System.out.println("Fin de array de datatuples");
+		//System.out.println(arrayDeDatos.getDataTuple()[0]);
 		// cerca <=15    lejos > 15   ===== MIN_DISTANCE
 		
 		for(GHOST ghost : GHOST.values())
