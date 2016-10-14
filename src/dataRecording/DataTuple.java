@@ -1,5 +1,7 @@
 package dataRecording;
 
+import java.util.HashMap;
+
 import pacman.game.Constants;
 import pacman.game.Constants.DM;
 import pacman.game.Constants.GHOST;
@@ -273,39 +275,72 @@ public class DataTuple {
 		return DiscreteTag.DiscretizeDouble(aux);
 	}
 	
+	//Funciones de discretización hechas por nosotros
+	
+	
+	//Para discretizar booleanos
+	public String discretizeBoolean(boolean value){
+		if(value)
+			return "true";
+		else
+			return "false";
+	}
+			
+	//Falta funcion de getHash 
+			
+	public HashMap<String, String> getHash(){
+		
+		//Falta por completar	
+		return null;			
+				
+	}
+	
+	public String discretizeStrategy(){
+		
+		//Falta por completar	
+		return null;
+	}
+	
 	//Par discretizar los datos de las tuplas
 	public  String discretizar(String nombreAtributo){
 		switch (nombreAtributo) {
 		case "numOfPillsLeft":
-			return discretizeNumberOfPills(this.discretizeNumberOfPills(numOfPillsLeft)).toString();
+			return discretizeNumberOfPills(numOfPillsLeft).toString();
 			
+		case "numOfPowerPillsLeft":
+			return discretizeNumberOfPowerPills(numOfPowerPillsLeft).toString();
+		
 		case "isBlinkyEdible":
-			return discretizeBoolean(boolean value);// hay que hacerla 
-
+			return discretizeBoolean(isBlinkyEdible);// hay que hacerla 
 			
-		//Faltan los demás tipos
+		case "isInkyEdible":
+			return discretizeBoolean(isInkyEdible);// hay que hacerla 
+		
+		case "isPinkyEdible":
+			return discretizeBoolean(isPinkyEdible);// hay que hacerla 
+		
+		case "isSueEdible":
+			return discretizeBoolean(isSueEdible);// hay que hacerla 
+		
+		case "blinkyDist":
+			return discretizeDistance(blinkyDist).toString();
+		
+		case "inkyDist":
+			return discretizeDistance(inkyDist).toString();
+			
+		case "pinkyDist":
+			return discretizeDistance(pinkyDist).toString();
+			
+		case "sueDist":
+			return discretizeDistance(blinkyDist).toString();	
+		
+		case "strategy":
+			
 		default:
 			return "None";
 		}
 		
-
-		//Para discretizar booleanos
-		public String discretizeBoolean(boolean value){
-			if(value)
-				return "true";
-			else
-				return "false";
-		}
-		
-		//Falta funcion de getHash 
-		
-		public HashMap<String, String> getHash(){
-			if
-			
-			
-		}
-		
-		
+	
 	}
 
 }

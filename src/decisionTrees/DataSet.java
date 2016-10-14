@@ -10,7 +10,8 @@ public class DataSet {
 
 	
 	// array con los datos leidos de trainingData
-	public ArrayList<DataTuple> dataTuples;
+	public DataTuple[] dataTuples;
+	
 	//UNa vez discretizados se categorizan los valores en un hashmap 
 	//String --> isPinkyEdible (tipo de parametro)
 	//String2 --> true or false (tipo de valor)  
