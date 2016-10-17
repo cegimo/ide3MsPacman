@@ -2,6 +2,7 @@ package dataRecording;
 
 import java.util.HashMap;
 
+import decisionTrees.DataSet;
 import pacman.game.Constants;
 import pacman.game.Constants.DM;
 import pacman.game.Constants.GHOST;
@@ -278,7 +279,8 @@ public class DataTuple {
 	//Funciones de discretización hechas por nosotros
 	
 	
-	//Para discretizar booleanos
+	//Para discretizar los booleanos
+	//Devuelve ya un String con el valor
 	public String discretizeBoolean(boolean value){
 		if(value)
 			return "true";
@@ -286,56 +288,66 @@ public class DataTuple {
 			return "false";
 	}
 			
-	//Falta funcion de getHash 
-			
+	
+	//Devuelve un hashMap con la lista de atributos ya discretizados
 	public HashMap<String, String> getHash(){
 		
-		//Falta por completar	
-		return null;			
+		HashMap hash = new HashMap<>();
+		String[] atributos = {"DirectionChosen", "numOfPillsLeft", "numOfPowerPillsLeft", "isBlinkyEdible", "isInkyEdible", "isPinkyEdible", "isSueEdible", "blinkyDist", "inkyDist", "pinkyDist", "sueDist", "strategy"};
+		
+		for(String atributo : atributos){
+			hash.put(atributo, discretizar(atributo));
+		}
+		
+		
+		return hash;			
 				
 	}
 	
-	public String discretizeStrategy(){
-		
+	
+	//STRATEGY 
+	/*public enum discretizeStrategy(){
+		salirCorriendo,
+		comerPildoras
 		//Falta por completar	
-		return null;
-	}
+		
+	}*/
 	
 	//Par discretizar los datos de las tuplas
 	public  String discretizar(String nombreAtributo){
 		switch (nombreAtributo) {
-		case "numOfPillsLeft":
-			return discretizeNumberOfPills(numOfPillsLeft).toString();
+			case "numOfPillsLeft":
+				return discretizeNumberOfPills(numOfPillsLeft).toString();
 			
-		case "numOfPowerPillsLeft":
-			return discretizeNumberOfPowerPills(numOfPowerPillsLeft).toString();
-		
-		case "isBlinkyEdible":
-			return discretizeBoolean(isBlinkyEdible);// hay que hacerla 
+			case "numOfPowerPillsLeft":
+				return discretizeNumberOfPowerPills(numOfPowerPillsLeft).toString();
 			
-		case "isInkyEdible":
-			return discretizeBoolean(isInkyEdible);// hay que hacerla 
-		
-		case "isPinkyEdible":
-			return discretizeBoolean(isPinkyEdible);// hay que hacerla 
-		
-		case "isSueEdible":
-			return discretizeBoolean(isSueEdible);// hay que hacerla 
-		
-		case "blinkyDist":
-			return discretizeDistance(blinkyDist).toString();
-		
-		case "inkyDist":
-			return discretizeDistance(inkyDist).toString();
+			case "isBlinkyEdible":
+				return discretizeBoolean(isBlinkyEdible); 
 			
-		case "pinkyDist":
-			return discretizeDistance(pinkyDist).toString();
-			
-		case "sueDist":
-			return discretizeDistance(blinkyDist).toString();	
+			case "isInkyEdible":
+				return discretizeBoolean(isInkyEdible);
 		
-		case "strategy":
+			case "isPinkyEdible":
+				return discretizeBoolean(isPinkyEdible); 
+		
+			case "isSueEdible":
+				return discretizeBoolean(isSueEdible); 
+		
+			case "blinkyDist":
+				return discretizeDistance(blinkyDist).toString();
+		
+			case "inkyDist":
+				return discretizeDistance(inkyDist).toString();
 			
+			case "pinkyDist":
+				return discretizeDistance(pinkyDist).toString();
+			
+			case "sueDist":
+				return discretizeDistance(blinkyDist).toString();	
+		
+			case "strategy":
+				//return discretizeStrategy().toString();
 		default:
 			return "None";
 		}
