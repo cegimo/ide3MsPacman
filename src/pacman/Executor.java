@@ -91,10 +91,10 @@ public class Executor
 		//exec.runGameTimed(new DataCollectorController(new KeyBoardInput()),new StarterGhosts(),visual);
 		
 		//Ejecuta con un controlador para pacman automatico
-		//exec.runGameTimed(new DataCollectorController(new StarterPacMan()),new StarterGhosts(),visual);
+		exec.runGameTimed(new DataCollectorController(new StarterPacMan()),new StarterGhosts(),visual);
 		
 		//Ejecuta nuestro propio controlador
-		exec.runGameTimed(new DataCollectorController(new MyPacmanTest()),new StarterGhosts(),visual);
+		//exec.runGameTimed(new DataCollectorController(new MyPacmanTest()),new StarterGhosts(),visual);
 		
 	}
 	

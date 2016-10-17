@@ -11,8 +11,6 @@ import static pacman.game.Constants.*;
 public class Nodo {
 	
 	
-	//Estrategia
-	//int funa = Game.getStrategy();
 	String atributeName;
 	//Si es nodo final, nuestro nodo tendrá una clase si no sera none
 	boolean esNodoFinal;

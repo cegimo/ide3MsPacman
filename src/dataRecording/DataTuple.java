@@ -40,7 +40,8 @@ public class DataTuple {
 	public int currentLevelTime;
 	public int numOfPillsLeft;
 	public int numOfPowerPillsLeft;
-	public int strategy; //CREA LA ESTRATEGIA
+	public String strategy; //CREA LA ESTRATEGIA
+	public String distanciaFantasmaMasCercano;
 
 	// Ghost this, dir, dist, edible - BLINKY, INKY, PINKY, SUE
 	public boolean isBlinkyEdible = false;
@@ -144,7 +145,7 @@ public class DataTuple {
 		//this.numberOfNodesInLevel = Integer.parseInt(dataSplit[22]);
 		//this.numberOfTotalPillsInLevel = Integer.parseInt(dataSplit[23]);
 		//this.numberOfTotalPowerPillsInLevel = Integer.parseInt(dataSplit[24]);
-		this.strategy = Integer.parseInt(dataSplit[10]);
+		this.strategy = dataSplit[10];
 	}
 
 	public String getSaveString() {
@@ -200,6 +201,8 @@ public class DataTuple {
 		double aux = this.normalizeDistance(dist);
 		return DiscreteTag.DiscretizeDouble(aux);
 	}
+	
+
 
 	public double normalizeLevel(int level) {
 		return ((level - 0) / (double) (Constants.NUM_MAZES - 0)) * (1 - 0) + 0;
@@ -287,7 +290,17 @@ public class DataTuple {
 		else
 			return "false";
 	}
+		
+	
+	
+	public String discretizarDistanciaFantasmas(int distancia){
+	
+		if(distancia <= 25)
+			return "cerca";
+		else
+			return "lejos";
 			
+	}
 	
 	//Devuelve un hashMap con la lista de atributos ya discretizados
 	public HashMap<String, String> getHash(){
@@ -335,18 +348,18 @@ public class DataTuple {
 				return discretizeBoolean(isSueEdible); 
 		
 			case "blinkyDist":
-				return discretizeDistance(blinkyDist).toString();
+				return discretizarDistanciaFantasmas(blinkyDist);	
 		
 			case "inkyDist":
-				return discretizeDistance(inkyDist).toString();
+				return discretizarDistanciaFantasmas(inkyDist);	
 			
 			case "pinkyDist":
-				return discretizeDistance(pinkyDist).toString();
+				return discretizarDistanciaFantasmas(pinkyDist);	
 			
 			case "sueDist":
-				return discretizeDistance(blinkyDist).toString();	
+				return discretizarDistanciaFantasmas(sueDist);	
 		
-			case "strategy":
+			//case "strategy":
 				//return discretizeStrategy().toString();
 		default:
 			return "None";

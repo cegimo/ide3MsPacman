@@ -18,7 +18,7 @@ import static pacman.game.Constants.*;
  */
 public class StarterPacMan extends Controller<MOVE>
 {	
-	private static final int MIN_DISTANCE=20;	//if a ghost is this close, run away
+	private static final int MIN_DISTANCE=25;	//if a ghost is this close, run away
 	
 	public MOVE getMove(Game game,long timeDue)
 	{			
@@ -29,7 +29,7 @@ public class StarterPacMan extends Controller<MOVE>
 			if(game.getGhostEdibleTime(ghost)==0 && game.getGhostLairTime(ghost)==0)
 				if(game.getShortestPathDistance(current,game.getGhostCurrentNodeIndex(ghost))<MIN_DISTANCE){
 					//game.getStrategy = runaway;
-					game.setStrategy(1);
+					game.setStrategy("huir");
 					return game.getNextMoveAwayFromTarget(game.getPacmanCurrentNodeIndex(),game.getGhostCurrentNodeIndex(ghost),DM.PATH);
 				}
 		//Strategy 2: find the nearest edible ghost and go after them 
@@ -49,7 +49,7 @@ public class StarterPacMan extends Controller<MOVE>
 			}
 		
 		if(minGhost!=null){	//we found an edible ghost
-			game.setStrategy(2);
+			game.setStrategy("cazar");
 			return game.getNextMoveTowardsTarget(game.getPacmanCurrentNodeIndex(),game.getGhostCurrentNodeIndex(minGhost),DM.PATH);
 		}
 		//Strategy 3: go after the pills and power pills
@@ -71,7 +71,7 @@ public class StarterPacMan extends Controller<MOVE>
 		for(int i=0;i<targetsArray.length;i++)
 			targetsArray[i]=targets.get(i);
 		//Set de la estrategia
-		game.setStrategy(3);
+		game.setStrategy("comer");
 		//return the next direction once the closest target has been identified
 		return game.getNextMoveTowardsTarget(current,game.getClosestNodeIndexFromNodeIndex(current,targetsArray,DM.PATH),DM.PATH);
 	}

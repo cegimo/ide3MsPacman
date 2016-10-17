@@ -75,7 +75,7 @@ public final class Game
 	private long seed;	
 	
 	//ESTRATEGIA
-	private int strategy;
+	private String strategy;
 		
 	
 	/////////////////////////////////////////////////////////////////////////////
@@ -132,7 +132,7 @@ public final class Game
 		pacmanWasEaten=false;
 		pillWasEaten=false;
 		powerPillWasEaten=false;
-		strategy=1;
+		strategy="comer";
 		
 		ghostsEaten=new EnumMap<GHOST,Boolean>(GHOST.class);
 		
@@ -1678,13 +1678,13 @@ public final class Game
 	///////////////     EDITADO   //////////////
 	//Geters y setters de nuestra estrategia
 	
-	public int getStrategy(){
+	public String getStrategy(){
 		
 		return this.strategy;
 		
 	}
 	
-	public void setStrategy(int strategy){
+	public void setStrategy(String strategy){
 		this.strategy = strategy;
 	}
 	

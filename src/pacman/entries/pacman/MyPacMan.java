@@ -31,7 +31,7 @@ public class MyPacMan extends Controller<MOVE>
 			if(game.getGhostEdibleTime(ghost)==0 && game.getGhostLairTime(ghost)==0)
 				if(game.getShortestPathDistance(current,game.getGhostCurrentNodeIndex(ghost))<MIN_DISTANCE){
 					//game.getStrategy = runaway;
-					game.setStrategy(1);
+					game.setStrategy("huir");
 					return game.getNextMoveAwayFromTarget(game.getPacmanCurrentNodeIndex(),game.getGhostCurrentNodeIndex(ghost),DM.PATH);
 				}
 		
