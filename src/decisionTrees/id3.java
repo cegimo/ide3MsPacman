@@ -2,14 +2,15 @@ package decisionTrees;
 
 import java.util.*;
 import dataRecording.DataTuple;
+import decisionTrees.Calculos;;
 
-public class id3 {
+public class id3 extends Calculos{
 	
 	
 	
 	public String selectAttr(ArrayList<DataTuple> datos, ArrayList<String> atributos) {
-		String res = null;
-		//float infoD = entropy(datos, "DirectionChosen");
+		String resultado = null;
+		float infoD = entropia(datos, "DirectionChosen");
 //		System.out.println(infoD);
 		
 		ArrayList<Float> infoA = new ArrayList<Float>();
@@ -38,37 +39,15 @@ public class id3 {
 			}
 		}
 		
-		res = attrs.get(posMax);
-		return res;
+		resultado = atributos.get(posMax);
+		return resultado;
 	}
 
-	private float infoA(ArrayList<DataTuple> datos, ArrayList<String> atributos) 
-	{
-		float info = 0;
-		ArrayList<String> values = DecisionTree.attrs.get(attr);
-		for(String value : values){
-			ArrayList<DataTuple> dt = DecisionTree.separarSubconjunto(data, attr, value);
-			info += (dt.size() / data.size()) * entropy(dt, "DirectionChosen");
-		}
-		return info;
-	}
-	public float calculatePi(ArrayList<DataTuple> data, String attr, String value) {
-		float pi = 0;
-		if(data.size() > 0) {
-			for (DataTuple dataTuple : data) {
-				if (dataTuple.getAttribute(attr).equals(value)) {
-					pi++;
-				}
-			}
-			pi /= data.size();
-		}
-		return pi;
+	private float infoA(ArrayList<DataTuple> datos, ArrayList<String> atributos) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
-	float log2(float x) {
-		if(x == 0) return 0;
-		float res = (float)(Math.log(x) / Math.log(2));
-		return res;
-	}
+	
 	
 }
