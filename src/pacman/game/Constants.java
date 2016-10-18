@@ -46,6 +46,16 @@ public final class Constants
 	};
 	
 	/**
+	 * 
+	 */
+	
+	public enum STRATEGY{
+		huir,
+		cazar,
+		comer
+		
+	}
+	/**
 	 * DM stands for Distance Metric, a simple enumeration for use with methods that 
 	 * require a distance metric. The metric available are as follows:
 	 * PATH: the actual path distance (i.e., number of step required to reach target)

@@ -2,7 +2,8 @@ package decisionTrees;
 
 import java.util.*;
 import dataRecording.DataTuple;
-import decisionTrees.Calculos;;
+import decisionTrees.Calculos;
+
 
 public class id3 extends Calculos{
 	
@@ -10,14 +11,14 @@ public class id3 extends Calculos{
 	
 	public String selectAttr(ArrayList<DataTuple> datos, ArrayList<String> atributos) {
 		String resultado = null;
-		float infoD = entropia(datos, "DirectionChosen");
+		float infoD = entropia(datos, "strategy");
 //		System.out.println(infoD);
 		
 		ArrayList<Float> infoA = new ArrayList<Float>();
 		ArrayList<Float> gainA = new ArrayList<Float>();
 
 		//calcular infoA
-		for (String attr : atributos) 
+		for (String atributo : atributos) 
 		{
 			float auxInfoA = infoA(datos, atributos);
 			infoA.add(auxInfoA);

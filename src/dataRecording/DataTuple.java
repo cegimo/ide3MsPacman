@@ -58,6 +58,8 @@ public class DataTuple {
 	public MOVE inkyDir;
 	public MOVE pinkyDir;
 	public MOVE sueDir;
+	
+	
 
 	// Util data - useful for normalization
 	public int numberOfNodesInLevel;
@@ -113,7 +115,7 @@ public class DataTuple {
 		this.numberOfTotalPillsInLevel = game.getNumberOfPills();
 		this.numberOfTotalPowerPillsInLevel = game.getNumberOfPowerPills();
 		
-		this.strategy = game.getStrategy(); //Obtiene la estrategia
+		//this.strategy = game.getStrategy(); //Obtiene la estrategia
 	}
 
 	public DataTuple(String data) {
@@ -293,14 +295,14 @@ public class DataTuple {
 		
 	
 	
-	public String discretizarDistanciaFantasmas(int distancia){
+	/*public String discretizarDistanciaFantasmas(int distancia){
 	
 		if(distancia <= 25)
 			return "cerca";
 		else
 			return "lejos";
 			
-	}
+	}*/
 	
 	//Devuelve un hashMap con la lista de atributos ya discretizados
 	public HashMap<String, String> getHash(){
@@ -327,7 +329,7 @@ public class DataTuple {
 	}*/
 	
 	//Par discretizar los datos de las tuplas
-	public  String discretizar(String nombreAtributo){
+	public String discretizar(String nombreAtributo){
 		switch (nombreAtributo) {
 			case "numOfPillsLeft":
 				return discretizeNumberOfPills(numOfPillsLeft).toString();
@@ -348,19 +350,17 @@ public class DataTuple {
 				return discretizeBoolean(isSueEdible); 
 		
 			case "blinkyDist":
-				return discretizarDistanciaFantasmas(blinkyDist);	
+				return discretizeDistance(blinkyDist).toString();	
 		
 			case "inkyDist":
-				return discretizarDistanciaFantasmas(inkyDist);	
+				return discretizeDistance(inkyDist).toString();	
 			
 			case "pinkyDist":
-				return discretizarDistanciaFantasmas(pinkyDist);	
+				return discretizeDistance(pinkyDist).toString();	
 			
 			case "sueDist":
-				return discretizarDistanciaFantasmas(sueDist);	
-		
-			//case "strategy":
-				//return discretizeStrategy().toString();
+				return discretizeDistance(sueDist).toString();	
+
 		default:
 			return "None";
 		}

@@ -55,16 +55,16 @@ public class Executor
 //		exec.runExperiment(new RandomPacMan(),new RandomGhosts(),numTrials);
 		 
 		
-		/*
+
 		//run a game in synchronous mode: game waits until controllers respond.
-		int delay=5;
+		int delay=50;
 		boolean visual=true;
-		exec.runGame(new RandomPacMan(),new RandomGhosts(),visual,delay);
-  		 */
+		exec.runGame(new MyPacMan(),new RandomGhosts(),visual,delay);
+  
 		
 		///*
 		//run the game in asynchronous mode.
-		boolean visual=true;
+		//boolean visual=true;
 //		exec.runGameTimed(new NearestPillPacMan(),new AggressiveGhosts(),visual);
 //		exec.runGameTimed(new StarterPacMan(),new StarterGhosts(),visual);
 		//exec.runGameTimed(new HumanController(new KeyBoardInput()),new StarterGhosts(),visual);	
@@ -91,7 +91,7 @@ public class Executor
 		//exec.runGameTimed(new DataCollectorController(new KeyBoardInput()),new StarterGhosts(),visual);
 		
 		//Ejecuta con un controlador para pacman automatico
-		exec.runGameTimed(new DataCollectorController(new StarterPacMan()),new StarterGhosts(),visual);
+		//exec.runGameTimed(new DataCollectorController(new StarterPacMan()),new StarterGhosts(),visual);
 		
 		//Ejecuta nuestro propio controlador
 		//exec.runGameTimed(new DataCollectorController(new MyPacmanTest()),new StarterGhosts(),visual);

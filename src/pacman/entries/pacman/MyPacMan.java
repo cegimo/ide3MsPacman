@@ -2,6 +2,7 @@ package pacman.entries.pacman;
 
 import java.util.ArrayList;
 
+import decisionTrees.DecisionTree;
 import pacman.controllers.Controller;
 import pacman.game.Constants.DM;
 import pacman.game.Constants.GHOST;
@@ -14,43 +15,24 @@ import pacman.game.Game;
  * be placed in this package or sub-packages (e.g., game.entries.pacman.mypackage).
  */
 
-
-
-
 public class MyPacMan extends Controller<MOVE>
 {	
 	//private MOVE myMove=MOVE.NEUTRAL;
-	private static final int MIN_DISTANCE=20;	//if a ghost is this close, run away
+private static final int MIN_DISTANCE=25;	//if a ghost is this close, run away
+private DecisionTree decisionTree;
+
+	public MyPacMan() {
+		decisionTree = new DecisionTree();
+		decisionTree.construirArbol();
+		decisionTree.pintar();
+	}
+	
 	
 	public MOVE getMove(Game game,long timeDue)
 	{			
-		int current=game.getPacmanCurrentNodeIndex();
+		String strategy = decisionTree.getStrategy(game);
 		
-		//Strategy 1: if any non-edible ghost is too close (less than MIN_DISTANCE), run away
-		for(GHOST ghost : GHOST.values())
-			if(game.getGhostEdibleTime(ghost)==0 && game.getGhostLairTime(ghost)==0)
-				if(game.getShortestPathDistance(current,game.getGhostCurrentNodeIndex(ghost))<MIN_DISTANCE){
-					//game.getStrategy = runaway;
-					game.setStrategy("huir");
-					return game.getNextMoveAwayFromTarget(game.getPacmanCurrentNodeIndex(),game.getGhostCurrentNodeIndex(ghost),DM.PATH);
-				}
-		
-		return MOVE.NEUTRAL;
+		System.out.println(strategy);
+		return MOVE.DOWN;
 	}
 }
-
-/*public class MyPacMan extends Controller<MOVE>
-{
-	
-	//contructor arbol de decision
-	
-	
-	public MOVE getMove(Game game, long timeDue) 
-	{
-		//estrategia =  this.arboldecision.clasificar();
-		
-		//return estrategia();
-		//return game.getNextMoveAwayFromTarget(game.getPacmanCurrentNodeIndex(), game.getActivePowerPillsIndices()[0], DM.MANHATTAN);
-		return myMove;
-	}
-}*/
